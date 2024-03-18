@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Style for sidebar buttons */
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for cards */
+.card {
+  display:inline-table;
+  background-color: #cacaca;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: fit-content;
+}
+
+.card p {
+  margin: 8px 0;
+  padding: 10px;
+}
+
+/* Style for doctor images */
+.card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Style for logout button */
+.logoutbutton {
+
+  margin-top: 420px;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .main-content {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .card img {
+    width: 40px;
+    height: 40px;
+  }
+}
