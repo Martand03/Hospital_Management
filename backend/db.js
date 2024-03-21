@@ -21,13 +21,32 @@ app.get('/',(re,res)=> {
     return res.json("From backend");
 })
 
-app.get('/doctors',(req,res)=>{
-    const sql= "SELECT * FROM doctors";
+app.get('/patients',(req,res)=>{
+    const sql= "SELECT * FROM patients";
     db.query(sql,(err,data)=>{
         if(err) return res.json(err);
         return res.json(data);
     })
 })
+
+app.get('/appointments', (req, res) => {
+    const sql = 'SELECT * FROM appointments';
+    db.query(sql, (err, data1) => {
+      if (err) return res.json(err);
+      return res.json(data1);
+    });
+  });
+
+app.post('/patients', (req,res)=>{
+    const { name, age, gender, date, contact } = req.body; 
+
+    const sql= "INSERT INTO appointments (name, age, gender, date, contact) VALUES (?, ?, ?, ?, ?)";
+    db.query(sql, [name, age, gender, date, contact], (err,data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    })
+})
+
 
 
 app.listen(8081, () =>{
