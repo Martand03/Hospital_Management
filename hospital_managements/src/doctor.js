@@ -1,60 +1,27 @@
-// import React, { useEffect, useState } from "react";
-
-// function Doctors(){
-    
-//   const [data,setData] = useState([])
-//   useEffect(()=>{
-//     fetch('http://localhost:8081/doctors')
-//     .then(res => res.json())
-//     .then(data => setData(data))
-//     .catch(err => console.log(err));
-//   }, [])
-
-
-//   return(
-//     <div>
-//       <table>
-//         <thead>
-//           <th>ID</th>
-//           <th>Name</th>
-//           <th>Designation</th>
-//           <th>Experience</th>
-//           <th>Mobile Number</th>
-//         </thead>
-//         <tbody>
-//           {data.map((d,i) => (
-//             <tr key={i}>
-//               <td>{d.id}</td>
-//               <td>{d.name}</td>
-//               <td>{d.designation}</td>
-//               <td>{d.experience}</td>
-//               <td>{d.mobilenumber}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   )
-// }
-
-// export default Doctors;
-
-
 import React, { useEffect, useState } from "react";
 import './doctor.css'
 
 function Doctors(){
 
   const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);
   const [showPatients, setShowPatients] = useState(false);
   const [showAppointments, setShowAppointments] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); 
 
   useEffect(() => {
-    fetch('http://localhost:8081/doctors')
+    fetch('http://localhost:8081/patients')
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err));
   }, []);
+
+  useEffect(() =>{
+    fetch('http://localhost:8081/appointments')
+    .then(res => res.json())
+    .then(data => setData1(data)) // Corrected: setData1(data) instead of setData1(data1)
+    .catch(err => console.log(err));
+  }, []); // Added empty dependency array to run this effect only once
 
   const handleShowPatients = () => {
     setShowPatients(true);
@@ -70,33 +37,58 @@ function Doctors(){
     window.location.href = '/';
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return(
-    <div className="container">
-      <div className="sidebar">
-        <button onClick={handleShowPatients}>Show Patients</button>
-        <button onClick={handleShowAppointments}>Show Appointments</button>
-        <button onClick={handleLogout} className="logoutbutton">Logout</button>
+    <div className="doctor">
+      <div className="header">
+      <button onClick={toggleSidebar} className="sidebar-toggle">
+        {sidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
+      </button>
+        <h1>Doctors Dashboard</h1>
+      
       </div>
+      <div className="doctor-container">
+      {/* Sidebar */}
+      {sidebarOpen && (
+        <div className="doctor-sidebar">
+          <button onClick={handleShowPatients}>Show Patients</button>
+          <button onClick={handleShowAppointments}>Show Appointments</button>
+          <button onClick={handleLogout} className="logoutbutton">Logout</button>
+        </div>
+      )}
+
       <div className="main-content">
         {showPatients && (
           <div>
             {data.map((d, i) => (
-              <div key={i} className="card">
+              <div key={i} className="doctor-card">
                 <p>ID: {d.id}</p>
                 <p>Name: {d.name}</p>
-                <p>Designation: {d.designation}</p>
-                <p>Experience: {d.experience}</p>
-                <p>Mobile Number: {d.mobilenumber}</p>
+                <p>Age: {d.age}</p>
+                <p>Gender: {d.gender}</p>
+                <p>Disease: {d.disease}</p>
+                <p>Mobile Number: {d.contact}</p>
               </div>
             ))}
           </div>
         )}
         {showAppointments && (
           <div>
-            {/* Render appointments as cards */}
-            {/* Add your appointment card rendering logic here */}
+            {data1.map((d1, j) => ( // Changed to data1.map
+              <div key={j} className="doctor-card">
+                <p>Name: {d1.name}</p>
+                <p>Age: {d1.age}</p>
+                <p>Gender: {d1.gender}</p>
+                <p>Date: {d1.date}</p>
+                <p>Mobile Number: {d1.contact}</p>
+              </div>
+            ))}
           </div>
         )}
+      </div>
       </div>
     </div>
   )

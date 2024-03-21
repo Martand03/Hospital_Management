@@ -1,11 +1,51 @@
-.container {
-  display: flex;
+.doctor {
+  background-color: beige;
 }
 
-.sidebar {
+.doctor-container {
+  display: flex;
+  background-image: linear-gradient(#d2ffff, #64b2cc);
+  min-height: 100vh;
+}
+
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  background-color: #dbdede;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.header h1 {
+  flex: 1;
+  text-align: center;
+}
+
+.header button {
+  margin-left: 20px; 
+  padding: 5px 10px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 15%;
+}
+
+.doctor-sidebar {
   width: 250px;
   background-color: #f0f0f0;
   padding: 20px;
+  margin-top: 50px; 
+  height: calc(100vh - 50px);
+  overflow-y: auto; 
 }
 
 .main-content {
@@ -13,8 +53,8 @@
   padding: 20px;
 }
 
-/* Style for sidebar buttons */
-.sidebar button {
+
+.doctor-sidebar button {
   display: block;
   width: 100%;
   margin-bottom: 10px;
@@ -29,28 +69,28 @@
   transition: background-color 0.3s ease;
 }
 
-.sidebar button:hover {
+.doctor-sidebar button:hover {
   background-color: #0056b3;
 }
 
 /* Style for cards */
-.card {
-  display:inline-table;
-  background-color: #cacaca;
+.doctor-card {
+  display: inline-table;
+  width: 30%;
+  background-color: #dbdede;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 20px;
-  width: fit-content;
+  margin: 50px 5px;
 }
 
-.card p {
+.doctor-card p {
   margin: 8px 0;
   padding: 10px;
 }
 
 /* Style for doctor images */
-.card img {
+.doctor-card img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -59,8 +99,7 @@
 
 /* Style for logout button */
 .logoutbutton {
-
-  margin-top: 420px;
+  margin-top: 380px; /* Adjust margin-top as needed */
 }
 
 /* Media query for responsiveness */
@@ -69,15 +108,15 @@
     width: 100%;
     padding: 10px;
   }
-  
+
   .main-content {
     padding: 10px;
   }
-  
+
   .card {
     padding: 15px;
   }
-  
+
   .card img {
     width: 40px;
     height: 40px;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios'; // Import axios for making HTTP requests
 import './patient.css';
 
 const Patient = () => {
@@ -8,6 +8,7 @@ const Patient = () => {
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [date, setDate] = useState('');
+  const [contact, setContact] = useState('');
 
   const handleLogout = () => {
     // Redirect to login page
@@ -18,19 +19,28 @@ const Patient = () => {
     setShowForm(true);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Name:', name);
-    console.log('Age:', age);
-    console.log('Gender:', gender);
-    console.log('Date:', date);
-    // After form submission logic, you can reset the form and hide it
-    setName('');
-    setAge('');
-    setGender('');
-    setDate('');
-    setShowForm(false);
+    try {
+      // Send a POST request to the server to add the patient data to appointments
+      await axios.post('http://localhost:8081/patients', {
+        name,
+        age,
+        gender,
+        date,
+        contact,
+      });
+      console.log('Patient data submitted successfully!');
+      // Reset the form and hide it after successful submission
+      setName('');
+      setAge('');
+      setGender('');
+      setDate('');
+      setContact('');
+      setShowForm(false);
+    } catch (error) {
+      console.error('Error submitting patient data:', error);
+    }
   };
 
   return (
@@ -87,6 +97,16 @@ const Patient = () => {
                   id="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact">Contact:</label>
+                <input
+                  type="text"
+                  id="contact"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
                   required
                 />
               </div>

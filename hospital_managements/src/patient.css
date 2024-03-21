@@ -1,67 +1,90 @@
 .container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #f0f0f0;
-    padding: 20px;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .sidebar button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .sidebar button:hover {
-    background-color: #0056b3;
-  }
-  
-  .appointment-form {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input[type='text'],
-  input[type='number'],
-  input[type='date'],
-  select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button[type='submit'] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type='submit']:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  background-image: linear-gradient(#d2ffff, #64b2cc);
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  height: 100vh;
+  margin-top: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.main-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.appointment-form {
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.appointment-form h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+button[type='submit'] {
+  margin-left: 33%;
+  align-items: center;
+  display: block;
+  width: 30%;
+  padding: 12px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #0056b3;
+}
