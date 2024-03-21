@@ -1,0 +1,67 @@
+/* ServiceStyle.css */
+
+.servicepage {
+    background-image: linear-gradient(to left, #d2ffff, #64b2cc);
+    width: 100%;
+    min-height: calc(100vh - 60px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-top: 90px; 
+    position: relative; 
+    z-index: 1;
+}
+
+.servicepage h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 2rem;
+    background: #0096c7;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch; 
+    width: 100%;
+}
+
+.service-box {
+    width: calc(33.33% - 40px); 
+    padding: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-box h2 {
+    color: #0096c7;
+}
+.service-box img {
+    width: 100%;
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 10px;
+    border: 5px solid #0096c7;
+}
+
+@media screen and (max-width:700px) {
+    .service-boxes {
+        flex-direction: column; /* Change to column layout for smaller screens */
+        align-items: center; /* Center items in the column */
+    }
+
+    .service-box {
+        width: calc(100% - 40px); /* Set width of each box to 100% for smaller screens */
+    }
+}
