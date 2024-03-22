@@ -12,7 +12,7 @@ const Patient = () => {
 
   const handleLogout = () => {
     // Redirect to login page
-    window.location.href = '/';
+    window.location.href = '/login';
   };
 
   const handleBookAppointment = () => {
@@ -23,7 +23,7 @@ const Patient = () => {
     e.preventDefault();
     try {
       // Send a POST request to the server to add the patient data to appointments
-      await axios.post('http://15.207.109.199:8081/patients', {
+      await axios.post('http://13.200.246.122:8081/patients', {
         name,
         age,
         gender,

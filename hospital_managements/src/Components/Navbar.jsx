@@ -11,6 +11,10 @@ class Navbar extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
+  handleSignup =() =>{
+    window.location.href='/login';
+  };
+
   render() {
     return (
       <nav className='NavbarItems'>
@@ -32,7 +36,7 @@ class Navbar extends Component {
               </li>
             );
           })}
-          <button>Sign Up</button>
+          <button onClick={this.handleSignup}>Sign Up</button>
         </ul>
       </nav>
     );
