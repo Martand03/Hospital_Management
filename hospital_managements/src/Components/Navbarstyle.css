@@ -47,7 +47,7 @@
 .nav-links-mobile{
     display: none;
 }
-button{
+.homebutton{
     padding: 0.5rem 1rem;
     white-space: nowrap;
     border-radius: 0.3rem;
@@ -56,7 +56,7 @@ button{
     border: none;
     cursor: pointer;
 }
-button:hover{
+.homebutton:hover{
     background-color: #151516;
     color: #fff;
 }

@@ -10,7 +10,6 @@ class Navbar extends Component {
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked });
   };
-
   handleSignup =() =>{
     window.location.href='/login';
   };
@@ -36,7 +35,7 @@ class Navbar extends Component {
               </li>
             );
           })}
-          <button onClick={this.handleSignup}>Sign Up</button>
+          <button className="homebutton" onClick={this.handleSignup}>Sign Up</button>
         </ul>
       </nav>
     );
