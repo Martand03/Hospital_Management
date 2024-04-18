@@ -10,14 +10,14 @@ function Doctors(){
   const [sidebarOpen, setSidebarOpen] = useState(true); 
 
   useEffect(() => {
-    fetch('http://15.207.109.199:8081/patients')
+    fetch('http://13.232.141.212:8081/patients')
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err));
   }, []);
 
   useEffect(() =>{
-    fetch('http://15.207.109.199:8081/appointments')
+    fetch('http://13.232.141.212:8081/appointments')
     .then(res => res.json())
     .then(data => setData1(data)) // Corrected: setData1(data) instead of setData1(data1)
     .catch(err => console.log(err));
