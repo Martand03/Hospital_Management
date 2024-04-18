@@ -10,14 +10,22 @@ function Doctors(){
   const [sidebarOpen, setSidebarOpen] = useState(true); 
 
   useEffect(() => {
+<<<<<<< HEAD
     fetch('http://13.232.141.212:8081/patients')
+=======
+    fetch('http://localhost:8081/patients')
+>>>>>>> 76a72b36030d8421aa1b01ffc03632e153d85447
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err));
   }, []);
 
   useEffect(() =>{
+<<<<<<< HEAD
     fetch('http://13.232.141.212:8081/appointments')
+=======
+    fetch('http://localhost:8081/appointments')
+>>>>>>> 76a72b36030d8421aa1b01ffc03632e153d85447
     .then(res => res.json())
     .then(data => setData1(data)) // Corrected: setData1(data) instead of setData1(data1)
     .catch(err => console.log(err));
@@ -34,7 +42,7 @@ function Doctors(){
   };
 
   const handleLogout = () => {
-    window.location.href = '/';
+    window.location.href = '/login';
   };
 
   const toggleSidebar = () => {

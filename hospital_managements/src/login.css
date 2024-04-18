@@ -12,39 +12,43 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 500px;
+  width: 450px;
 }
 
 .form-group {
   margin-bottom: 20px;
 }
-
+h2{
+  font-size: 2.1rem;
+}
 label {
   display: block;
   margin-bottom: 5px;
+  font-size: 1.2rem;
 }
 
 input[type='text'],
 input[type='password'] {
-  width: 90%;
+  width: 70%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-button {
-  width: 100%;
+.loginbutton {
+  width: 50%;
   padding: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-button:hover {
-  background-color: #0056b3;
+.loginbutton:hover {
+  background-color: #151516;
+  color: #fff;
 }
 
 h2 {

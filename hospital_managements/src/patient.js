@@ -12,7 +12,7 @@ const Patient = () => {
 
   const handleLogout = () => {
     // Redirect to login page
-    window.location.href = '/';
+    window.location.href = '/login';
   };
 
   const handleBookAppointment = () => {
@@ -23,7 +23,11 @@ const Patient = () => {
     e.preventDefault();
     try {
       // Send a POST request to the server to add the patient data to appointments
+<<<<<<< HEAD
       await axios.post('http://13.232.141.212:8081/patients', {
+=======
+      await axios.post('http://localhost:8081/patients', {
+>>>>>>> 76a72b36030d8421aa1b01ffc03632e153d85447
         name,
         age,
         gender,
@@ -110,7 +114,7 @@ const Patient = () => {
                   required
                 />
               </div>
-              <button type="submit">Submit</button>
+              <button className='patientbutton' type="submit">Submit</button>
             </form>
           </div>
         )}
