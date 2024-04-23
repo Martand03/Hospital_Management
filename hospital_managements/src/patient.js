@@ -30,7 +30,7 @@ const Patient = () => {
         date,
         contact,
       });
-      console.log('Patient data submitted successfully!');
+      console.log('Patient datas submitted successfully!');
       // Reset the form and hide it after successful submission
       setName('');
       setAge('');
