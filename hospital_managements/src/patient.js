@@ -23,7 +23,7 @@ const Patient = () => {
     e.preventDefault();
     try {
       // Send a POST request to the server to add the patient data to appointments
-      await axios.post('http://13.232.141.212:8081/patients', {
+      await axios.post('http://13.126.209.98:8081/patients', {
         name,
         age,
         gender,
